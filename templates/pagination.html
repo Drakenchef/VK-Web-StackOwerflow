@@ -1,0 +1,31 @@
+<div class="pagination mt-4">
+    <nav aria-label="Page pagination">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link link-dark" href="?page=1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                </li>
+
+                <li class="page-item"><a class="page-link link-dark"
+                                         href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+                </li>
+            {% endif %}
+            <li class="page-item"><a class="page-link link-dark"
+                                     href="?page={{ page_obj.number }}">{{ page_obj.number }}</a></li>
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link link-dark"
+                                         href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link link-dark" href="?page=10000" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
